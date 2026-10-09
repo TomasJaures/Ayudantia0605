@@ -21,7 +21,7 @@ import com.EjercicioAyudantia.ISoft.new_usecase.DTO.TaskDTO;
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
-    private HashMap<Long, Task> tareas;
+    private HashMap<Long, Task> tareas = new HashMap<>();
 
     private final TaskService taskService;
 
@@ -33,7 +33,7 @@ public class TaskController {
     public ResponseEntity<Task> createTask(@RequestBody TaskDTO dto){        
 
         Task task = taskService.createTask(
-            tareas.keySet().stream().max(Long::compareTo).get() + 1,
+            tareas.keySet().stream().max(Long::compareTo).orElse(0L) + 1,
             dto
         );
 
