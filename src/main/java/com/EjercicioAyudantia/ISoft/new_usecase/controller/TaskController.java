@@ -49,7 +49,7 @@ public class TaskController {
         return taskService.findAll(prioridad, titulo, fechaLimite,tareas);
     }
 
-    @PatchMapping("/task/{id}/complete")
+    @PatchMapping("/{id}/complete")
     private ResponseEntity<Task> completeTask(@PathVariable("id") Long id){
         if (tareas.containsKey(id)) {
             taskService.completeTask(tareas.get(id));
