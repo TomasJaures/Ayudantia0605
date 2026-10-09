@@ -1,8 +1,7 @@
 package com.EjercicioAyudantia.ISoft.new_usecase.service;
 
-import org.springframework.stereotype.Service;
-
 import com.EjercicioAyudantia.ISoft.new_usecase.Classes.Task;
+import org.springframework.stereotype.Service;
 import com.EjercicioAyudantia.ISoft.new_usecase.DTO.TaskDTO;
 
 import java.util.*;
@@ -30,5 +29,9 @@ public class TaskService {
             false
         );
         return tarea;
+    }
+    
+    public void completeTask(Task task) {
+        task.setCompletada(true);
     }
 }
