@@ -9,9 +9,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class TaskService {
-    private final Map<Long, Task> tareas = new ConcurrentHashMap<>();
 
-    public List<Task> findAll(String prioridad, String titulo, String fechaLimite) {
+    public List<Task> findAll(String prioridad, String titulo, String fechaLimite, Map<Long,Task> tareas) {
         return tareas.values().stream()
                 .filter(t -> prioridad == null || t.getPrioridad().equalsIgnoreCase(prioridad))
                 .filter(t -> titulo == null || t.getTitulo().toLowerCase().contains(titulo.toLowerCase()))

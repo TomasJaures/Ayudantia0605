@@ -46,7 +46,7 @@ public class TaskController {
     public List<Task> list(@RequestParam(required = false) String prioridad,
                            @RequestParam(required = false) String titulo,
                            @RequestParam(required = false) String fechaLimite) {
-        return taskService.findAll(prioridad, titulo, fechaLimite);
+        return taskService.findAll(prioridad, titulo, fechaLimite,tareas);
     }
 
     @PatchMapping("/task/{id}/complete")
